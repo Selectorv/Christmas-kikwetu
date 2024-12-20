@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmass Kikwetu</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" 
+  integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+   crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+   
+    <div class="container">
+        <header>
+            <h1>  <i class="fa-solid fa-music cast "></i> The best Christmas song 2024! </h1>  
+        </header>
+           
+        
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <i class="fa-solid fa-share "></i>
+                </div>
+
+                <div class="circle">
+                <a href="songs/gemini.html">
+                    <i class="fa-solid fa-music"></i>lyrics</a>
+                </div>
+            </nav>
+
+           <img src="images/photo-1465659398573-cc071d2531d0.jpeg"  class="song-img"  > 
+           <h1> The star still shines this christmas  </h1>
+          
+    
+
+           <audio controls>
+            <source src="images/The star still shines (2).mp4">
+           </audio>
+
+          <!--<input type="range" value="0" id="progress">
+
+           <div class="controls">
+            <div><i class="fa-solid fa-backward "></i></div>
+            <div onclick="playPause()"><i class="fa-solid fa-play " id="ctrlIcon"></i></div>
+            <div><i class="fa-solid fa-forward "></i></div>
+        
+
+           </div>-->
+
+        </div>
+    </div>
+    <script>
+        let progress = document.getElementById("progress");
+        let song = document.getElementById("song");
+        let ctrlIcon = document.getElementById("ctrlIcon");
+
+        song.onloadedmetadata = function(){
+            progress.max = song.duration;
+            progress.value = song.currentTime;
+
+        }
+        function playPause(){
+            if(ctrlIcon.classList.contains("fa-pause")){
+                song.pause();
+                ctrlIcon.classList.remove("fa-pause");
+                ctrlIcon.classList.add("fa-play");
+            }
+            else{
+                song.play();
+                ctrlIcon.classList.add("fa-pause");
+                ctrlIcon.classList.remove("fa-play"); 
+            }
+        }
+
+        if(song.play()){
+            setInterval(() => {
+                progress.value = song.currentTime;
+            }, 500);
+        }
+        progress.onchange = function(){
+            song.play();
+            song.playTime = progress.value;
+            ctrlIcon.classList.add("fa-pause")
+            ctrlIcon.classList.remove("fa-play");
+        }
+    </script>
+    
+</body>
+</html>
